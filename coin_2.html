@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+</head>
+
+<body>
+
+    <div id="coin-container">
+        <img src="quarter-front.png">
+    </div>
+    <button id="add-quarter-button">Add quarter</button>
+    <button id="add-dime-button">Add dime</button>
+    <button id="add-nickle-button">Add nickle</button>
+    <button id="add-penny-button">Add penny</button>
+
+</body>
+<script src="jquery.js"></script>
+<script>
+    //add on click button for quarter
+    $("#add-quarter-button").on("click", function() {
+        let newQuarter = $('<img src="quarter-front.png">');
+        $("#coin-container").append(newQuarter);
+    });
+    //add on click button for dime
+    $("#add-dime-button").on("click", function() {
+        let newDime = $('<img src="dime-front.png">');
+        $("#coin-container").append(newDime);
+    });
+    //add on click button nickle
+    $("#add-nickle-button").on("click", function() {
+        let newNickle = $('<img src="nickle-front.png">');
+        $("#coin-container").append(newNickle);
+    });
+    //add on click button penny
+    $("#add-penny-button").on("click", function() {
+        let newPenny = $('<img src="penny-front.png">');
+        $("#coin-container").append(newPenny);
+    });
+
+</script>
+
+</html>

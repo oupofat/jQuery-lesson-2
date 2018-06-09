@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Example</title>
+</head>
+
+<body>
+
+    <div id="coin-container">
+        <!--<img src="quarter-front.png">-->
+    </div>
+    <button id="add-quarter-button">Add quarter</button>
+    <button id="add-dime-button">Add dime</button>
+    <button id="add-nickle-button">Add nickle</button>
+    <button id="add-penny-button">Add penny</button>
+    <!--added a total bill button.--->
+    <div>
+        <label>How much was the bill?</label>
+        <input id="how_much_bill" type="text" />
+        <label>How much did you give the cashier</label>
+        <input id="cash" type="text" />
+        <button id="cash_given">Amount you gave</button>
+    </div>
+</body>
+<script src="jquery.js"></script>
+<script>
+    //on click for getting the total of the bill and the cash given.
+    $("#cash_given").on("click", function() {
+        //gets the cash given
+        let cash = $("#cash").val();
+        console.log(cash);
+        //gets how much the bill was
+        let bill = $("#how_much_bill").val();
+        console.log(bill);
+        getTotal(bill, cash);
+    })
+
+    //add on click button for quarter
+    $("#add-quarter-button").on("click", function() {
+        let newQuarter = $('<img src="quarter-front.png">');
+        $("#coin-container").append(newQuarter);
+    });
+    //add on click button for dime
+    $("#add-dime-button").on("click", function() {
+        let newDime = $('<img src="dime-front.png">');
+        $("#coin-container").append(newDime);
+    });
+    //add on click button nickle
+    $("#add-nickle-button").on("click", function() {
+        let newNickle = $('<img src="nickle-front.png">');
+        $("#coin-container").append(newNickle);
+    });
+    //add on click button penny
+    $("#add-penny-button").on("click", function() {
+        let newPenny = $('<img src="penny-front.png">');
+        $("#coin-container").append(newPenny);
+    });
+
+    //function to get the total to give back
+    function getTotal(bill, cash) {
+        let total = cash - bill;
+        getChange(total);
+    };
+
+    //calls the get change funciton to make the change 
+    function getChange(total) {
+
+        while (total >= .25) {
+            $("#coin-container").append('<img src="quarter-front.png">');
+            //console.log(total);
+            total -= .25;
+            //console.log(total);
+        };
+        while (total >= .10) {
+            $("#coin-container").append('<img src="dime-front.png">');
+            //console.log(total)
+            total -= .10;
+        };
+        while (total >= .05) {
+            $("#coin-container").append('<img src="nickle-front.png">');
+            //console.log(total);
+            total -= .05;
+            //console.log(total);
+        };
+        while (total >= .01) {
+            $("#coin-container").append('<img src="penny-front.png">');
+            //console.log(total);
+            total -= .01;
+            //console.log(total);
+        };
+    };
+
+</script>
